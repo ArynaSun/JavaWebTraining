@@ -8,7 +8,7 @@ public class StringParser {
 
     private static final String REGEX = "\\s+";
 
-    public static Ball parseString(String line) {
+    public static Ball parseString(String line) {//////////comment
         String[] strings = line.split(REGEX);
         if (Validator.validate(strings)) {
             return new Ball(
