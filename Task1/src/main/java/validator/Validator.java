@@ -4,20 +4,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator {
-    public static final String PATTERN = "[0-9.]{3}";
+    private static final String VALID_STRING = "(\\d+(\\.\\d+)?(\\s+)?){4}";
+    //"([0-9]\\.[0-9]\\s){3}[0-9]\\.[0-9]{1}";
+    //"(\\d+(\\.\\d+)?(\\s+)?){4}";
 
-    private static boolean validate(String input) {
-        Pattern p = Pattern.compile(PATTERN);
-        Matcher m = p.matcher(input);
-        return !(m.find() && m.group() != null && !m.group().isEmpty());
-    }
-
-    public static boolean validate(String[] input) {
-        for (String s : input) {
-            if (!validate(s)){
-                return false;
-            }
-        }
-        return true;
+    public static boolean validate(String input) {
+        boolean isValid = input.matches(VALID_STRING);
+        return isValid;
     }
 }
+
+//    public static void main(String[] args) {
+//        System.out.println(validate("0.1 0.3 0.4"));
+//    }
+//
+//}
