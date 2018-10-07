@@ -13,13 +13,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DataReader {
-    private static final String DATA_TXT = "Data.txt";
 
     private static Logger logger = LogManager.getLogger(DataReader.class);// что-то с логером, шо делает делает гетлоггер
 
     public List<String> readData(String fileName) throws DataReaderException {
         List<String> dataLines;
-        Path path = Paths.get(DATA_TXT);
+        Path path = Paths.get(fileName);
 
         try (Stream<String> lineStream = Files.lines(path)) {
             dataLines = lineStream.collect(Collectors.toList());

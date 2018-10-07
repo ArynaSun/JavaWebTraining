@@ -14,7 +14,7 @@ public class SquareCalculatorTest extends Assert {
     private SquareCalculator calculator;
 
     @BeforeTest
-    public void init(){
+    public void init() {
         calculator = new SquareCalculator();
     }
 

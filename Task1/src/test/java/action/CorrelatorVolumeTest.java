@@ -12,12 +12,12 @@ public class CorrelatorVolumeTest extends Assert {
     private CorrelatorVolume correlator;
 
     @BeforeTest
-    public void init(){
+    public void init() {
         correlator = new CorrelatorVolume();
     }
 
     @Test
-    public void correlateSegmentVolumeTest() throws ValidationException{
+    public void correlateSegmentVolumeTest() throws ValidationException {
         Ball ball = new Ball(5, new Point(0, 0, 0));
 
         double expectedCorrelation = 1;

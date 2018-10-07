@@ -15,7 +15,7 @@ public class CorrelatorVolume {
         if (Math.abs(ball.getCenter().getZ()) >= ball.getRadius()) {
             return 0;
         }
-        double heightSegment = ball.getCenter().getZ()!= 0? 2 * ball.getRadius() - Math.abs(ball.getCenter().getZ()):ball.getRadius();
+        double heightSegment = ball.getCenter().getZ() != 0 ? 2 * ball.getRadius() - Math.abs(ball.getCenter().getZ()) : ball.getRadius();
         double ballVolume = volumeCalculator.calculateBallVolume(ball);
         double segmentVolume = volumeCalculator.calculateSegmentVolume(ball, heightSegment);
         double remainingVolume = ballVolume - segmentVolume;
@@ -30,7 +30,7 @@ public class CorrelatorVolume {
         if (Math.abs(ball.getCenter().getY()) >= ball.getRadius()) {
             return 0;
         }
-        double heightSegment = ball.getCenter().getY() !=0 ? 2 * ball.getRadius() - Math.abs(ball.getCenter().getY()):ball.getRadius();
+        double heightSegment = ball.getCenter().getY() != 0 ? 2 * ball.getRadius() - Math.abs(ball.getCenter().getY()) : ball.getRadius();
         double ballVolume = volumeCalculator.calculateBallVolume(ball);
         double segmentVolume = volumeCalculator.calculateSegmentVolume(ball, heightSegment);
         double remainingVolume = ballVolume - segmentVolume;
@@ -44,7 +44,7 @@ public class CorrelatorVolume {
         if (Math.abs(ball.getCenter().getX()) >= ball.getRadius()) {
             return 0;
         }
-        double heightSegment = ball.getCenter().getY()!=0 ? 2 * ball.getRadius() - Math.abs(ball.getCenter().getX()):ball.getRadius();
+        double heightSegment = ball.getCenter().getY() != 0 ? 2 * ball.getRadius() - Math.abs(ball.getCenter().getX()) : ball.getRadius();
         double ballVolume = volumeCalculator.calculateBallVolume(ball);
         double segmentVolume = volumeCalculator.calculateSegmentVolume(ball, heightSegment);
         double remainingVolume = ballVolume - segmentVolume;
