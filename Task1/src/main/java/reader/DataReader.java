@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class DataReader {
 
-    private static Logger logger = LogManager.getLogger(DataReader.class);// что-то с логером, шо делает делает гетлоггер
+    private static Logger logger = LogManager.getLogger(DataReader.class);
 
     public List<String> readData(String fileName) throws DataReaderException {
         List<String> dataLines;

@@ -18,7 +18,7 @@ public class DataReaderTest extends Assert {
 
     @Test
     public void readDataTest() throws DataReaderException {
-        String fileName = "D:\\Aryna_Work\\JavaWebTraining\\Task1\\src\\main\\resources\\TestData.txt";
+        String fileName = "src/main/resources/TestData.txt";
         List<String> expectedList = new ArrayList<>();
         expectedList.add("6.0 8.9 0.6 8.4");
 
