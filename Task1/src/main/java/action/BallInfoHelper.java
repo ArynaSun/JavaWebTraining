@@ -6,6 +6,18 @@ import validator.BallValidator;
 
 public class BallInfoHelper {
 
+    private static BallInfoHelper ballInfoHelper;
+
+    public static BallInfoHelper getBallInfoHelper() {
+        if (ballInfoHelper == null) {
+            ballInfoHelper = new BallInfoHelper();
+        }
+        return ballInfoHelper;
+    }
+
+    private BallInfoHelper() {
+    }
+
     public boolean isBall(Object ball) {
         return ball instanceof Ball;
     }

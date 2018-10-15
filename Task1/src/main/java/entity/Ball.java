@@ -6,6 +6,7 @@ public class Ball implements Serializable {
 
     private double radius;
     private Point center;
+    private RegisterBall registerBall;
 
     public Ball() {
         center = new Point();
@@ -14,6 +15,7 @@ public class Ball implements Serializable {
     public Ball(double radius, Point center) {
         this.radius = radius;
         this.center = center;
+        registerBall
 
     }
 
