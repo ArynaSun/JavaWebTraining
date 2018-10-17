@@ -20,8 +20,8 @@ public class StringParserTest extends Assert {
         lines.add("1.0 0.2 0.3");
         lines.add("15.0 0.2 0.3 0.9595");
         ArrayList<Ball> balls = new ArrayList<>();
-        balls.add(new Ball(5.0, new Point(8.0, 6.5, 8.1)));
-        balls.add(new Ball(15.0, new Point(0.2, 0.3, 0.9595)));
+        balls.add(new Ball(id, 5.0, new Point(8.0, 6.5, 8.1)));
+        balls.add(new Ball(id, 15.0, new Point(0.2, 0.3, 0.9595)));
         return new Object[][]{
                 {lines, balls}
         };

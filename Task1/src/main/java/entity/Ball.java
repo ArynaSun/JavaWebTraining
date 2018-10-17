@@ -4,20 +4,23 @@ import java.io.Serializable;
 
 public class Ball implements Serializable {
 
+    private final int id;
     private double radius;
     private Point center;
-    private RegisterBall registerBall;
 
-    public Ball() {
+    public Ball(int id) {
+        this.id = id;
         center = new Point();
     }
 
-    public Ball(double radius, Point center) {
+    public Ball(int id, double radius, Point center) {
+        this.id = id;
         this.radius = radius;
         this.center = center;
-        registerBall
 
     }
+
+    public int getId(){return id;}
 
     public double getRadius() {
         return radius;

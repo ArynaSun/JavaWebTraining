@@ -6,7 +6,18 @@ import validator.BallValidator;
 
 public class CorrelatorVolume {
 
-    VolumeCalculator volumeCalculator = new VolumeCalculator();
+    private static CorrelatorVolume correlatorVolume;
+
+    public static CorrelatorVolume getCorrelatorVolume(){
+        if(correlatorVolume == null){
+            correlatorVolume = new CorrelatorVolume();
+        }
+        return correlatorVolume;
+    }
+    private CorrelatorVolume(){
+    }
+
+    VolumeCalculator volumeCalculator = VolumeCalculator.getVolumeCalculator();
 
     public double correlateSegmentVolumeXoy(Ball ball) throws ValidationException {
         if (!BallValidator.validate(ball)) {

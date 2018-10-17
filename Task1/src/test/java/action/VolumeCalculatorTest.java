@@ -20,7 +20,7 @@ public class VolumeCalculatorTest extends Assert {
 
     @Test
     public void calculateBallVolumeTest() throws ValidationException {
-        Ball ball = new Ball(5, new Point(0, 0, 0));
+        Ball ball = new Ball(id, 5, new Point(0, 0, 0));
         double expectedBallVolume = (4.0 / 3.0) * PI * Math.pow(ball.getRadius(), 3);
 
         double actualBallVolume = calculator.calculateBallVolume(ball);
@@ -30,7 +30,7 @@ public class VolumeCalculatorTest extends Assert {
 
     @Test
     public void calculateSegmentVolumeTest() throws ValidationException {
-        Ball ball = new Ball(5, new Point(0, 0, 0));
+        Ball ball = new Ball(id, 5, new Point(0, 0, 0));
         double height = 2;
         double expectedSegmentVolume = PI * Math.pow(height, 2) * (ball.getRadius() - (1.0 / 3.0) * height);
 

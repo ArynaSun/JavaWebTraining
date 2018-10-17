@@ -26,7 +26,7 @@ public class StringParser {
                 );
 
                 Ball ball = new Ball(
-                        Double.parseDouble(strings[0]),
+                        id, Double.parseDouble(strings[0]),
                         centralPoint
                 );
 

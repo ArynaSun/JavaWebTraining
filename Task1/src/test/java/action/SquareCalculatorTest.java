@@ -20,7 +20,7 @@ public class SquareCalculatorTest extends Assert {
 
     @Test
     public void calculateBallSquareTest() throws ValidationException {
-        Ball ball = new Ball(5, new Point(0, 0, 0));
+        Ball ball = new Ball(id, 5, new Point(0, 0, 0));
         double expectedSquare = 4 * PI * Math.pow(ball.getRadius(), 2);
 
         double actualSquare = calculator.calculateBallSquare(ball);

@@ -18,7 +18,7 @@ public class CorrelatorVolumeTest extends Assert {
 
     @Test
     public void correlateSegmentVolumeTest() throws ValidationException {
-        Ball ball = new Ball(5, new Point(0, 0, 0));
+        Ball ball = new Ball(id, 5, new Point(0, 0, 0));
 
         double expectedCorrelation = 1;
 

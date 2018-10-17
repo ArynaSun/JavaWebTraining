@@ -6,6 +6,16 @@ import validator.BallValidator;
 
 public class SquareCalculator {
     private static final double PI = Math.PI;
+    private static SquareCalculator squareCalculator;
+
+    public static SquareCalculator getSquareCalculator(){
+        if(squareCalculator == null){
+            squareCalculator = new SquareCalculator();
+        }
+        return squareCalculator;
+    }
+
+    private SquareCalculator(){}
 
     public double calculateBallSquare(Ball ball) throws ValidationException {
         if (!BallValidator.validate(ball)) {

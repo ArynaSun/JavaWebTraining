@@ -6,6 +6,16 @@ import validator.BallValidator;
 
 public class VolumeCalculator {
     public static final double PI = Math.PI;
+    private static VolumeCalculator volumeCalculator;
+
+    public static VolumeCalculator getVolumeCalculator(){
+        if(volumeCalculator == null){
+            volumeCalculator = new VolumeCalculator();
+        }
+        return volumeCalculator;
+    }
+
+    private VolumeCalculator(){}
 
     public double calculateBallVolume(Ball ball) throws ValidationException {
         if (!BallValidator.validate(ball)) {
