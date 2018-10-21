@@ -9,7 +9,6 @@ import com.epam.jwt.task1.repository.reader.Impl.DataReaderImpl;
 import com.epam.jwt.task1.specification.BallSpecification;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class BallRepositoryImpl implements BallRepository {

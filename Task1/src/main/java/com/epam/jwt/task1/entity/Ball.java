@@ -26,7 +26,9 @@ public class Ball implements Serializable, Observable {
 
     }
 
-    public int getId(){return id;}
+    public int getId() {
+        return id;
+    }
 
     public double getRadius() {
         return radius;
@@ -90,21 +92,18 @@ public class Ball implements Serializable, Observable {
 
     @Override
     public void notifyObserver() {
-        for (int i = 0; i<observers.size(); i++) {
+        for (int i = 0; i < observers.size(); i++) {
             try {
                 observers.get(i).update(this);
             } catch (ValidationException e) {
-                //Этот метод не должен завершить работу
-                //Если вылетит исключение, но обработать его
-                //не может (SRP)
                 e.printStackTrace();
             }
         }
     }
 
     @Override
-    public void registerObserver(Observer obsrver) {
-        observers.add(obsrver);
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
     }
 
     @Override

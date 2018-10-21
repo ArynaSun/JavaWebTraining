@@ -5,7 +5,7 @@ import com.epam.jwt.task1.entity.Ball;
 import com.epam.jwt.task1.exception.ValidationException;
 import com.epam.jwt.task1.specification.BallSpecification;
 
-public class BySquareSpec implements BallSpecification {//TODO
+public class BySquareSpec implements BallSpecification {
 
     private SquareCalculatorImpl squareCalculator = SquareCalculatorImpl.getSquareCalculator();
     private double ballSquare;

@@ -5,7 +5,7 @@ public interface Observable {
 
     void notifyObserver();
 
-    void registerObserver(Observer obsrver);
+    void registerObserver(Observer observer);
 
     void unregisterObserver(Observer observer);
 

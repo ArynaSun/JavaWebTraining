@@ -6,9 +6,9 @@ import com.epam.jwt.task1.action.impl.SquareCalculatorImpl;
 import com.epam.jwt.task1.action.impl.VolumeCalculatorImpl;
 import com.epam.jwt.task1.exception.ValidationException;
 
-public class RegisterBall implements Observer {
+import java.io.Serializable;
 
-    // private Ball ball;
+public class RegisterBall implements Observer, Serializable {
 
     private boolean isBall;
     private boolean isTangentXoy;
@@ -22,11 +22,6 @@ public class RegisterBall implements Observer {
     private double ballSquare;
 
     private double ballVolume;
-
-//    public void setBall(Ball ball) throws ValidationException {
-//        this.ball = ball;
-//        update();
-//    }
 
     public void update(Ball ball) throws ValidationException {
 
@@ -50,10 +45,6 @@ public class RegisterBall implements Observer {
         ballVolume = volumeCalculator.calculateBallVolume(ball);
 
     }
-
-//    public Ball getBall() {
-//        return ball;
-//    }
 
     public boolean isBall() {
         return isBall;

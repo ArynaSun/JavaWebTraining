@@ -9,14 +9,15 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
     public static final double PI = Math.PI;
     private static VolumeCalculatorImpl volumeCalculator;
 
-    public static VolumeCalculatorImpl getVolumeCalculator(){
-        if(volumeCalculator == null){
+    public static VolumeCalculatorImpl getVolumeCalculator() {
+        if (volumeCalculator == null) {
             volumeCalculator = new VolumeCalculatorImpl();
         }
         return volumeCalculator;
     }
 
-    private VolumeCalculatorImpl(){}
+    private VolumeCalculatorImpl() {
+    }
 
     public double calculateBallVolume(Ball ball) throws ValidationException {
         if (!BallValidator.validate(ball)) {
