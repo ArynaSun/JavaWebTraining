@@ -1,5 +1,6 @@
 package com.epam.jwt.task2.reader.impl;
 
+import com.epam.jwt.task2.reader.DataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DataReaderImpl {
+public class DataReaderImpl implements DataReader {
 
     private static Logger logger = LogManager.getLogger(DataReaderImpl.class);
 
@@ -33,9 +34,14 @@ public class DataReaderImpl {
         }
         StringBuffer buffer = new StringBuffer();
 
-        for(int i = 0; i<lines.size(); i++){
+        for (int i = 0; i < lines.size(); i++) {
+            buffer.append(lines.get(i));
             buffer.append("\n");
         }
         return buffer.toString();
     }
 }
+
+
+
+

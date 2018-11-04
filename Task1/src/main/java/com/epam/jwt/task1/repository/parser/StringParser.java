@@ -10,6 +10,11 @@ import java.util.List;
 public interface StringParser {
 
     String REGEX_SEPARATOR = "\\s+";
+    int X_INDEX = 1;
+    int Y_INDEX = 2;
+    int Z_INDEX = 3;
+    int ID_INDEX = 4;
+    int RADIUS_INDEX = 0;
 
     static List<Ball> parseBall(List<String> lines) {
         List<Ball> balls = new ArrayList<>();
@@ -20,15 +25,14 @@ public interface StringParser {
             String[] strings = line.split(REGEX_SEPARATOR);
 
             Point centralPoint = new Point(
-                    Double.parseDouble(strings[1]),
-                    Double.parseDouble(strings[2]),
-                    Double.parseDouble(strings[3])
+                    Double.parseDouble(strings[X_INDEX]),
+                    Double.parseDouble(strings[Y_INDEX]),
+                    Double.parseDouble(strings[Z_INDEX])
             );
 
-            Ball ball = new Ball(
-                    (int) Double.parseDouble(strings[4]), Double.parseDouble(strings[0]),
-                    centralPoint
-            );
+            int id = (int) Double.parseDouble(strings[ID_INDEX]);
+            double radius = Double.parseDouble(strings[RADIUS_INDEX]);
+            Ball ball = new Ball(id, radius, centralPoint);
 
             balls.add(ball);
         }

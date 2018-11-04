@@ -5,7 +5,7 @@ import com.epam.jwt.task2.entity.Text;
 import java.util.Arrays;
 import java.util.List;
 
-class ParagraphParser implements StringParser{
+public class ParagraphParser implements StringParser {
 
     private static final String PARAGRAPH_SEPARATOR = "\n";
 
@@ -15,12 +15,12 @@ class ParagraphParser implements StringParser{
         this.sentenceParser = sentenceParser;
     }
 
-    public List<String> parseParagraph(String text){
+    public List<String> parseParagraph(String text) {
         return Arrays.asList(text.trim().split(PARAGRAPH_SEPARATOR));
     }
 
     @Override
     public Text parseData(Object text) {
-        return sentenceParser.parseData(parseParagraph((String)text));
+        return sentenceParser.parseData(parseParagraph((String) text));
     }
 }

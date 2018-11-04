@@ -8,7 +8,7 @@ public class LexemeByCharacterEntryComparator implements Comparator<Lexeme> {
 
     private char symbol;
 
-    public void setSymbol(char symbol){
+    public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
 
@@ -22,10 +22,10 @@ public class LexemeByCharacterEntryComparator implements Comparator<Lexeme> {
         return countSymbolsInLexeme1 > countSymbolsInLexeme2 ? 1 : -1;
     }
 
-    private int countSymbolsIn(char[] lexeme){
+    public int countSymbolsIn(char[] lexeme) {
         int count = 0;
-        for (int i=0 ; i<lexeme.length; i++){
-            if (lexeme[i] == symbol){
+        for (int i = 0; i < lexeme.length; i++) {
+            if (lexeme[i] == symbol) {
                 count++;
             }
         }

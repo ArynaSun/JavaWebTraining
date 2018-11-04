@@ -75,7 +75,7 @@ public class Paragraph implements Composite {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getClass().getName() + "sentenceList: " + sentenceList;
     }
 }

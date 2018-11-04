@@ -8,7 +8,7 @@ import com.epam.jwt.task2.entity.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-class TextParser implements StringParser {
+public class TextParser implements StringParser {
 
     public Text parseText(List<List<List<String>>> lexemeFromText) {
         List<Paragraph> paragraphsFromText = new ArrayList<>();

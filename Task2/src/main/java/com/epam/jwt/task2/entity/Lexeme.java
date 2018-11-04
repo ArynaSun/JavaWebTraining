@@ -49,11 +49,11 @@ public class Lexeme implements PartOfText {
 
     @Override
     public int hashCode() {
-        return  ((lexeme == null)? 0 : lexeme.hashCode()*31);
+        return ((lexeme == null) ? 0 : lexeme.hashCode() * 31);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getClass().getName() + "lexeme: " + lexeme;
     }
 }

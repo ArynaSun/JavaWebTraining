@@ -10,6 +10,7 @@ public class Sentence implements Composite {
     public Sentence() {
         lexemeList = new ArrayList<>();
     }
+
     public Sentence(List<Lexeme> lexemeList) {
         setLexemeList(lexemeList);
     }
@@ -73,7 +74,7 @@ public class Sentence implements Composite {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getClass().getName() + "lexemeList: " + lexemeList;
     }
 }

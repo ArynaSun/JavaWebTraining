@@ -11,9 +11,9 @@ public class LexemeSorterImpl implements LexemeSorter {
     private static final LexemeByCharacterEntryComparator CHARACTER_ENTRY_COMPARATOR = new LexemeByCharacterEntryComparator();
 
     @Override
-    public void sortByLength(Text text){
-        for(int i = 0; i<text.getParagraphList().size(); i++){
-            for(int j =0; j<text.getParagraphList().get(i).getSentenceList().size(); j++ ){
+    public void sortByLength(Text text) {
+        for (int i = 0; i < text.getParagraphList().size(); i++) {
+            for (int j = 0; j < text.getParagraphList().get(i).getSentenceList().size(); j++) {
                 text.getParagraphList().get(i).getSentenceList().get(j).getLexemeList().sort(LEXEMA_COMPARATOR);
             }
         }
@@ -22,8 +22,8 @@ public class LexemeSorterImpl implements LexemeSorter {
     @Override
     public void sortByCharacterEntry(char symbol, Text text) {
         CHARACTER_ENTRY_COMPARATOR.setSymbol(symbol);
-        for(int i = 0; i<text.getParagraphList().size(); i++){
-            for(int j =0; j<text.getParagraphList().get(i).getSentenceList().size(); j++ ){
+        for (int i = 0; i < text.getParagraphList().size(); i++) {
+            for (int j = 0; j < text.getParagraphList().get(i).getSentenceList().size(); j++) {
                 text.getParagraphList().get(i).getSentenceList().get(j).getLexemeList().sort(CHARACTER_ENTRY_COMPARATOR);
             }
         }

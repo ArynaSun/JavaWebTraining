@@ -72,7 +72,7 @@ public class Text implements Composite {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getClass().getName() + "paragraphList: " + paragraphList;
     }
 }

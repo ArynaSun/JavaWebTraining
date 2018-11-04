@@ -2,13 +2,11 @@ package com.epam.jwt.task2.parser;
 
 import com.epam.jwt.task2.entity.Text;
 
-import java.util.List;
-
 public class ChainOfParser implements StringParser {
 
     private static ChainOfParser chainOfParser = new ChainOfParser();
 
-    public static ChainOfParser getChainOfParser(){
+    public static ChainOfParser getChainOfParser() {
         return chainOfParser;
     }
 
@@ -18,7 +16,7 @@ public class ChainOfParser implements StringParser {
         initChain();
     }
 
-    private void initChain(){
+    private void initChain() {
         TextParser textParser = new TextParser();
         LexemeParser lexemeParser = new LexemeParser(textParser);
         SentenceParser sentenceParser = new SentenceParser(lexemeParser);

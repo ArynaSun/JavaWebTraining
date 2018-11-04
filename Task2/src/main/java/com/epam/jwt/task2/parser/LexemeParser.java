@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-class LexemeParser implements StringParser {
+public class LexemeParser implements StringParser {
 
     private static final String LEXEME_SEPARATOR = "\\s";
 
