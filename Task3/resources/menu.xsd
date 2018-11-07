@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<schema xmlns = "http://www.w3.org/2001/XMLSchema"
+        targetNamespace = "http://www.epam.com/task3"
+        xmlns:tns="http://www.epam.com/task3"
+        elementFormDefault="qualified">
+    <element name="menu">
+        <complexType>
+            <sequence>
+                <element name="section" type="tns:section" minOccurs="1" maxOccurs="12"/>
+            </sequence>
+            <attribute name="restaurant" type="string"/>
+        </complexType>
+    </element>
+    <complexType name="section">
+        <choice maxOccurs="unbounded">
+            <element name="dish" type="tns:dish" />
+            <element name="complexDish" type="tns:complexDish" />
+        </choice>
+        <attribute name="name" type="string"/>
+    </complexType>
+    <complexType name="dish">
+        <sequence>
+            <element name="photo" type="string" default="photo"/>
+            <element name="dishName" type="string"/>
+            <element name="description" type="string"/>
+            <element name="portion" type="string"/>
+            <element name="price" type="positiveInteger" default="1"/>
+        </sequence>
+    </complexType>
+    <complexType name="complexDish">
+        <sequence>
+            <element name="photo" type="string" default="photo"/>
+            <element name="dishName" type="string"/>
+            <element name="complexDescription" type="tns:complexDescription"/>
+            <element name="portion" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="complexDescription">
+        <sequence maxOccurs="unbounded">
+           <element name="ingredient" type="string"/>
+           <element name="price" type="positiveInteger" default="1"/>
+        </sequence>
+    </complexType>
+
+</schema>
