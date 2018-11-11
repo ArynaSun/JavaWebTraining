@@ -14,11 +14,11 @@ public class Menu {
         this.nameRestaurant = nameRestaurant;
     }
 
-    public List<Section> getSection() {
+    public List<Section> getSections() {
         return section;
     }
 
-    public void setSection(List<Section> section) {
+    public void setSections(List<Section> section) {
         this.section = section;
     }
 

@@ -15,11 +15,11 @@ public class XMLReaderBySax extends DefaultHandler {
 
 //    private static Logger logger = LogManager.getLogger(XMLReaderBySax.class);
 
-    Menu menu = new Menu();
-    Section section = new Section();
-    Dish dish = new Dish();
-    ComplexDish complexDish = new ComplexDish();
-    ComplexDescription complexDescription = new ComplexDescription();
+    Menu menu;
+    int sectionPosition = -1;
+    List<Integer> dishesPositions;
+    List<Integer> complexDishesPositions;
+    List<Integer> complexDescriptionPositions;
     private String element;
 
     public Menu receiveResult() {
@@ -29,18 +29,47 @@ public class XMLReaderBySax extends DefaultHandler {
     @Override
     public void startDocument() {
         System.out.println("Parsing started");
+        menu = new Menu();
+        menu.setSections(new ArrayList<>());
+        dishesPositions = new ArrayList<>();
+        complexDishesPositions = new ArrayList<>();
     }
 
     @Override
     public void startElement(String namespaceURI, String localName,
                              String qName, Attributes attributes) {
         element = localName;
-
-        for (int i = 0; i < attributes.getLength(); i++) {
-
-            element += " " + attributes.getLocalName(i) + " = " + attributes.getValue(i);
+        switch (element){
+            case "menu":
+                menu.setNameRestaurant(attributes.getValue(0));
+                break;
+            case "section":
+                Section section = new Section();
+                section.setName(attributes.getValue(0));
+                section.setComplexDish(new ArrayList<>());
+                section.setDish(new ArrayList<>());
+                menu.getSections().add(section);
+                sectionPosition++;
+                complexDishesPositions.add(-1);
+                dishesPositions.add(-1);
+                break;
+            case "dish":
+                Dish dish = new Dish();
+                menu.getSections().get(sectionPosition).getDish().add(dish);
+                dishesPositions.set(sectionPosition, dishesPositions.get(sectionPosition) + 1);
+                break;
+            case "complexDish":
+                ComplexDish complexDish = new ComplexDish();
+                menu.getSections().get(sectionPosition).getComplexDish().add(complexDish);
+                complexDishesPositions.set(sectionPosition, complexDishesPositions.get(sectionPosition) + 1);
+                break;
+            case "complexDescription":
+                menu.getSections().get(sectionPosition)
+                        .getComplexDish().get(complexDishesPositions.get(sectionPosition))
+                        .setComplexDescription(new ArrayList<>());
+                break;
         }
-        System.out.println((element.trim()));
+
     }
 
     @Override
@@ -50,64 +79,33 @@ public class XMLReaderBySax extends DefaultHandler {
 
     @Override
     public void characters(char[] ch, int start, int length) {
-
-        List<Dish> dishes = new ArrayList<>();
-        //dishes.add(new Dish());
-
-        if (element.equals("dish")) {
-            section.setDish(dishes);
+        String tagValue = new String(ch, start, length).trim();
+        if (tagValue.isEmpty()){
+            return;
         }
-
-        if (element.equals("photo")) {
-            dish.setPhoto(new String(ch, start, length));
-        }
-
-        if (element.equals("nameDish")) {
-            dish.setNameDish(new String(ch, start, length));
-        }
-
-        if (element.equals("description")) {
-            dish.setDescription(new String(ch, start, length));
-        }
-
-        if (element.equals("portion")) {
-            dish.setPortion(new String(ch, start, length));
-        }
-
-        if (element.equals("price")) {
-            dish.setPrice(new Integer(new String(ch, start, length)));
-        }
-
-        dishes.add(dish);
-        //System.out.println(dishes);
-
-        List<ComplexDish> complexDishes = new ArrayList<>();
-
-        if (element.equals("complexDish")) {
-            section.setComplexDish(complexDishes);
-        }
-
-        if (element.equals("photo")) {
-            complexDish.setPhoto(new String(ch, start, length));
-        }
-
-        if (element.equals("nameDish")) {
-            complexDish.setNameDish(new String(ch, start, length));
-        }
-
-        List<ComplexDescription> complexDescriptions = new ArrayList<>();
-
-        if (element.equals("ingredient")) {
-            complexDescription.setIngredient(new String(ch, start, length));
-        }
-        if (element.equals("price")) {
-            complexDescription.setPrice(new Integer(new String(ch, start, length)));
-        }
-
-        complexDescriptions.add(complexDescription);
-
-        if (element.equals(("complexDescription"))) {
-            complexDish.setComplexDescription(complexDescriptions);
+        switch (element){
+            case "photo":
+                menu.getSections().get(sectionPosition)
+                        .getDish().get(dishesPositions.get(sectionPosition)).setPhoto(tagValue);
+                break;
+            case "dishName":
+                menu.getSections().get(sectionPosition)
+                        .getDish().get(dishesPositions.get(sectionPosition)).setNameDish(tagValue);
+                break;
+            case "description":
+                menu.getSections().get(sectionPosition)
+                        .getDish().get(dishesPositions.get(sectionPosition)).setDescription(tagValue);
+                break;
+            case "portion":
+                menu.getSections().get(sectionPosition)
+                        .getDish().get(dishesPositions.get(sectionPosition)).setPortion(tagValue);
+                break;
+            case "price":
+                menu.getSections().get(sectionPosition)
+                        .getDish().get(dishesPositions.get(sectionPosition)).setPrice(Integer.parseInt(tagValue));
+                break;
+            case "ingredient":
+                break;
         }
     }
 
@@ -125,11 +123,14 @@ public class XMLReaderBySax extends DefaultHandler {
 
             xmlReader.setContentHandler(readerBySax);
             xmlReader.parse("resources/menu.xml");
+
+            Menu menu = readerBySax.receiveResult();
+            menu.getSections();
         } catch (SAXException e) {
             System.out.println("Ошибка SAX парсера");
         } catch (IOException e) {
             System.out.println("Ошибка IO потока");
-        }
+        };
 
     }
 

@@ -51,7 +51,7 @@
             <portion>80/20/1</portion>
             <price></price>
         </dish>
-        <complexDish>
+<!--        <complexDish>
             <photo></photo>
             <dishName>Ассорти баклажаны</dishName>
             <complexDescription>
@@ -63,7 +63,7 @@
                 <price></price>
             </complexDescription>
             <portion>100/5</portion>
-        </complexDish>
+        </complexDish>-->
         <dish>
             <photo></photo>
             <dishName>Соленья по-домашнему</dishName>
@@ -166,17 +166,17 @@
             <portion>150/5</portion>
             <price>105</price>
         </dish>
-        <complexDish>
-            <photo></photo>
-            <dishName>Жульен</dishName>
-            <complexDescription>
-                <ingredient>с курицей</ingredient>
-                <price>145</price>
-                <ingredient>с грибами</ingredient>
-                <price>155</price>
-            </complexDescription>
-            <portion>120/1</portion>
-        </complexDish>
+        <!--<complexDish>-->
+            <!--<photo></photo>-->
+            <!--<dishName>Жульен</dishName>-->
+            <!--<complexDescription>-->
+                <!--<ingredient>с курицей</ingredient>-->
+                <!--<price>145</price>-->
+                <!--<ingredient>с грибами</ingredient>-->
+                <!--<price>155</price>-->
+            <!--</complexDescription>-->
+            <!--<portion>120/1</portion>-->
+        <!--</complexDish>-->
         <dish>
             <photo></photo>
             <dishName>Ахматар мясной</dishName>
@@ -198,17 +198,17 @@
             <portion>1 шт</portion>
             <price>260</price>
         </dish>
-        <complexDish>
-            <photo></photo>
-            <dishName>Креветки</dishName>
-            <complexDescription>
-                <ingredient>отварные</ingredient>
-                <price>135</price>
-                <ingredient>жареные</ingredient>
-                <price>155</price>
-            </complexDescription>
-            <portion>120/30</portion>
-        </complexDish>
+        <!--<complexDish>-->
+            <!--<photo></photo>-->
+            <!--<dishName>Креветки</dishName>-->
+            <!--<complexDescription>-->
+                <!--<ingredient>отварные</ingredient>-->
+                <!--<price>135</price>-->
+                <!--<ingredient>жареные</ingredient>-->
+                <!--<price>155</price>-->
+            <!--</complexDescription>-->
+            <!--<portion>120/30</portion>-->
+        <!--</complexDish>-->
         <dish>
             <photo></photo>
             <dishName>Мидии по-турецки</dishName>

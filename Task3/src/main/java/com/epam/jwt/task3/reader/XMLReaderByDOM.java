@@ -101,7 +101,7 @@ public class XMLReaderByDOM {
             sections.add(section);
         }
 
-        menu.setSection(sections);
+        menu.setSections(sections);
 
         return menu;
     }
