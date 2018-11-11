@@ -1,4 +1,4 @@
-package entity;
+package com.epam.jwt.task3.entity;
 
 public class Dish {
     private String photo;
