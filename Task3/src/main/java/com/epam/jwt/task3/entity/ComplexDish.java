@@ -8,7 +8,8 @@ public class ComplexDish {
     private List<ComplexDescription> complexDescription;
     private String portion;
 
-    public ComplexDish(){}
+    public ComplexDish() {
+    }
 
     public ComplexDish(String photo, String nameDish, List<ComplexDescription> complexDescription, String portion) {
         this.photo = photo;
@@ -47,5 +48,62 @@ public class ComplexDish {
 
     public void setPortion(String portion) {
         this.portion = portion;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (this == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        ComplexDish complexDish = (ComplexDish) obj;
+        if (null == photo) {
+            return (photo == complexDish.photo);
+        } else {
+            if (!photo.equals(complexDish.photo)) {
+                return false;
+            }
+        }
+        if (null == nameDish) {
+            return (nameDish == complexDish.nameDish);
+        } else {
+            if (!nameDish.equals(complexDish.nameDish)) {
+                return false;
+            }
+        }
+        if (null == complexDescription) {
+            return (complexDescription == complexDish.complexDescription);
+        } else {
+            if (!complexDescription.equals(complexDish.complexDescription)) {
+                return false;
+            }
+        }
+        if (null == portion) {
+            return (portion == complexDish.portion);
+        } else {
+            if (!portion.equals(complexDish.portion)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (((null == photo) ? 0 : photo.hashCode() * 31) + ((null == nameDish) ? 0 : nameDish.hashCode() * 13) +
+                ((null == complexDescription) ? 0 : complexDescription.hashCode() * 31) +
+                ((null == portion) ? 0 : portion.hashCode() * 13));
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "@" + "photo: " + photo + ", nameDish: " + nameDish +
+                ", complexDescription: " + complexDescription + ", portion: " + portion;
     }
 }
