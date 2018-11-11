@@ -13,12 +13,12 @@
     </element>
     <complexType name="section">
         <choice maxOccurs="unbounded">
-            <element name="dish" type="tns:dish" />
+            <element name="dishes" type="tns:dishes" />
             <element name="complexDish" type="tns:complexDish" />
         </choice>
         <attribute name="name" type="string"/>
     </complexType>
-    <complexType name="dish">
+    <complexType name="dishes">
         <sequence>
             <element name="photo" type="string" default="photo"/>
             <element name="dishName" type="string"/>

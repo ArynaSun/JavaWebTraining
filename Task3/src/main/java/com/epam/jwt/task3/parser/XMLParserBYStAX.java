@@ -1,18 +1,17 @@
-package com.epam.jwt.task3.reader;
+package com.epam.jwt.task3.parser;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.InputStream;
-import java.nio.file.Files;
 
-public class XMLReaderBYStAX implements AutoCloseable {
+public class XMLParserBYStAX implements AutoCloseable {
 
     private static final XMLInputFactory FACTORY = XMLInputFactory.newInstance();
 
     private final XMLStreamReader reader;
 
-    public XMLReaderBYStAX(InputStream inputStream) throws XMLStreamException {
+    public XMLParserBYStAX(InputStream inputStream) throws XMLStreamException {
         reader = FACTORY.createXMLStreamReader(inputStream);
     }
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Section {
 
-    private List<Dish> dish;
+    private List<Dish> dishes;
     private List<ComplexDish> complexDish;
     private String name;
 
@@ -13,7 +13,7 @@ public class Section {
 
 
     public Section(List<Dish> dish, List<ComplexDish> complexDish, String name) {
-        this.dish = dish;
+        this.dishes = dish;
         this.complexDish = complexDish;
         this.name = name;
     }
@@ -26,12 +26,12 @@ public class Section {
         this.name = name;
     }
 
-    public List<Dish> getDish() {
-        return dish;
+    public List<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setDish(List<Dish> dish) {
-        this.dish = dish;
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     public List<ComplexDish> getComplexDish() {
@@ -55,10 +55,10 @@ public class Section {
         }
 
         Section section = (Section) obj;
-        if (null == dish) {
-            return (dish == section.dish);
+        if (null == dishes) {
+            return (dishes == section.dishes);
         } else {
-            if (!dish.equals(section.dish)) {
+            if (!dishes.equals(section.dishes)) {
                 return false;
             }
         }
@@ -83,12 +83,12 @@ public class Section {
 
     @Override
     public int hashCode() {
-        return (int) (((null == dish) ? 0 : dish.hashCode() * 11) +
+        return (int) (((null == dishes) ? 0 : dishes.hashCode() * 11) +
                 ((null == complexDish) ? 0 : complexDish.hashCode() * 31) + ((null == name) ? 0 : name.hashCode() * 13));
     }
 
     @Override
     public String toString(){
-        return getClass().getName() + "@" + "dish: " + dish + ", complexDish: " + ", name: " + name;
+        return getClass().getName() + "@" + "dishes: " + dishes + ", complexDish: " + ", name: " + name;
     }
 }

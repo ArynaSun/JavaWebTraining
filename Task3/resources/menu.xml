@@ -1,56 +1,56 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <menu restaurant="Жемчужинка" xmlns="http://www.epam.com/task3">
     <section name="Холодные закуски">
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Ассорти рыбное</dishName>
             <description>Слабосоленая форель, семга</description>
             <portion>100/20/15</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Тарталетки с красной икрой</dishName>
             <description>Тарталетки с красной икрой</description>
             <portion>60/50</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Закуска по-русски</dishName>
             <description>Кусочки атлантической сельди с отварным картофелем, луком, лимоном и зеленью</description>
             <portion>70/50/2/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Куриный рулет</dishName>
             <description>Куриный рулет собственного производства</description>
             <portion>100/5</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Бастурма</dishName>
             <description>Вяленая вырезка из говяжьего мяса</description>
             <portion>50/5</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Ассорти мясное</dishName>
             <description>Нарезка из буженины, бастурмы, куриного рулета собственного производства и колбасы
             </description>
             <portion>100/30</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Язык отварной</dishName>
             <description>Нарезка нежного говяжьего языка, подается с хреном</description>
             <portion>80/20/1</portion>
             <price></price>
-        </dish>
+        </dishes>
         <complexDish>
             <photo></photo>
             <dishName>Ассорти баклажаны</dishName>
@@ -64,56 +64,56 @@
             </complexDescription>
             <portion>100/5</portion>
         </complexDish>
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Соленья по-домашнему</dishName>
             <description>Маринованные овощи</description>
             <portion>150/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Бабушкины угощения</dishName>
             <description>Ассорти из маринованных грибов</description>
             <portion>120/20/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Сырная тарелка</dishName>
             <description>Сыры Чечел, дор блю, российский, мраморный</description>
             <portion>100/5</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Брынза</dishName>
             <description>Рассольный сыр, изготавливаемый из овечьего молока</description>
             <portion>75/5</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Зелень</dishName>
             <description>Кинза, лук, петрушка, укроп, базилик</description>
             <portion>30</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Ассорти овощное</dishName>
             <description>Свежие помидоры, болгарский перец, огурцы, редис и зелень</description>
             <portion>150/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Овощной букет</dishName>
             <description>Корейская морковь, капуста, фунчоза</description>
             <portion>150/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Овощи по-армянски</dishName>
             <description>Мелко нарезанные свежие помидоры, огурцы, болгарский перец,
@@ -121,51 +121,51 @@
             </description>
             <portion>150/40</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Сеньор помидор</dishName>
             <description>Помидор, фаршированный сырным соусом</description>
             <portion>150/1</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Фестиваль салатов</dishName>
             <description></description>
             <portion>400/10</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Оливки, маслины</dishName>
             <description></description>
             <portion>50</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Лимон</dishName>
             <description></description>
             <portion>60</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Мацони</dishName>
             <description></description>
             <portion>300</portion>
             <price></price>
-        </dish>
+        </dishes>
     </section>
     <section name="Горячие закуски">
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Лобио с шампиньонами</dishName>
             <description>Фасоль с шампиньонами и грецким орехом</description>
             <portion>150/5</portion>
             <price>105</price>
-        </dish>
+        </dishes>
         <complexDish>
             <photo></photo>
             <dishName>Жульен</dishName>
@@ -177,27 +177,27 @@
             </complexDescription>
             <portion>120/1</portion>
         </complexDish>
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Ахматар мясной</dishName>
             <description>Колбаса, ветчина, буженина, сыр, запеченные на мангале в лаваше</description>
             <portion>1 шт.</portion>
             <price>165</price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Ахматар с овощами</dishName>
             <description>Сыр, помидоры, зелень, запеченные на мангале в лаваше</description>
             <portion>1 шт</portion>
             <price>150</price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Сюрприз</dishName>
             <description></description>
             <portion>1 шт</portion>
             <price>260</price>
-        </dish>
+        </dishes>
         <complexDish>
             <photo></photo>
             <dishName>Креветки</dishName>
@@ -209,42 +209,42 @@
             </complexDescription>
             <portion>120/30</portion>
         </complexDish>
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Мидии по-турецки</dishName>
             <description>Мидии, фаршированные сыром и грецким орехом</description>
             <portion>150/30</portion>
             <price>190</price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Эскарго</dishName>
             <description>Виноградные улитки, фаршированные по-бургундски</description>
             <portion>12 шт</portion>
             <price>230</price>
-        </dish>
+        </dishes>
     </section>
     <section name="Завтраки">
-        <dish>
+        <dishes>
             <photo></photo>
             <dishName>Глазунья</dishName>
             <description>2 яйца(на выбор: ветчина, сыр, помидоры)</description>
             <portion>150</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Омлет</dishName>
             <description></description>
             <portion>100</portion>
             <price></price>
-        </dish>
-        <dish>
+        </dishes>
+        <dishes>
             <photo></photo>
             <dishName>Блинчики с мясом</dishName>
             <description>Жаренные блинчики с мясом</description>
             <portion>150</portion>
             <price></price>
-        </dish>
+        </dishes>
     </section>
 </menu>
