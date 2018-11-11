@@ -95,7 +95,7 @@ public class XMLParserByDOM {
             Element dishesNode = (Element) dishNode;
             NodeList childDishesNode = dishesNode.getChildNodes();
 
-            if (dishesNode.getTagName().trim().equals("dish")) {
+            if (dishesNode.getTagName().trim().equals("dishes")) {
                 Dish dish = parseDish(childDishesNode);
 
                 dishes.add(dish);
@@ -108,15 +108,15 @@ public class XMLParserByDOM {
     private Dish parseDish(NodeList childDishesNode) {
         Dish dish = new Dish();
 
-        dish.setPhoto(childDishesNode.item(PHOTO_INDEX).getNodeValue());
-        dish.setNameDish(childDishesNode.item(NAME_DISH_INDEX).getNodeValue());
-        dish.setDescription(childDishesNode.item(DECRIPTION_INDEX).getNodeValue());
-        dish.setPortion(childDishesNode.item(PORTION_INDEX).getNodeValue());
+        dish.setPhoto(childDishesNode.item(PHOTO_INDEX).getTextContent());
+        dish.setNameDish(childDishesNode.item(NAME_DISH_INDEX).getTextContent());
+        dish.setDescription(childDishesNode.item(DECRIPTION_INDEX).getTextContent());
+        dish.setPortion(childDishesNode.item(PORTION_INDEX).getTextContent());
 
         Node priceNode = childDishesNode.item(PRICE_INDEX);
-        String nodeValue = priceNode.getNodeValue();
+        String nodeValue = priceNode.getTextContent();
 
-        dish.setPrice(nodeValue != null ? Integer.parseInt(nodeValue) : 0);
+        dish.setPrice(!nodeValue.isEmpty() ? Integer.parseInt(nodeValue) : 0);
 
         return dish;
     }
@@ -149,13 +149,13 @@ public class XMLParserByDOM {
     private ComplexDish parseComplexDish(NodeList childComplexDishesNode) {
         ComplexDish complexDish = new ComplexDish();
 
-        complexDish.setPhoto(childComplexDishesNode.item(PHOTO_INDEX).getNodeValue());
-        complexDish.setNameDish(childComplexDishesNode.item(NAME_DISH_INDEX).getNodeValue());
+        complexDish.setPhoto(childComplexDishesNode.item(PHOTO_INDEX).getTextContent());
+        complexDish.setNameDish(childComplexDishesNode.item(NAME_DISH_INDEX).getTextContent());
 
         List<ComplexDescription> descriptions = parseComplexDescriptions(childComplexDishesNode);
 
         complexDish.setComplexDescription(descriptions);
-        complexDish.setPortion(childComplexDishesNode.item(PORTION_INDEX).getNodeValue());
+        complexDish.setPortion(childComplexDishesNode.item(PORTION_INDEX).getTextContent());
 
         return complexDish;
     }
@@ -169,21 +169,24 @@ public class XMLParserByDOM {
         for (int i = 0; i < length; i += 4) {
             ComplexDescription description = parseComplexDescription(complexDescriptions, i);
 
-            descriptions.add(description);
+            if (description != null) {
+                descriptions.add(description);
+            }
         }
         return descriptions;
     }
 
     private ComplexDescription parseComplexDescription(NodeList complexDescriptions, int i) {
-        ComplexDescription description = new ComplexDescription();
+        ComplexDescription description = null;
         Node complexDescriptionNode = complexDescriptions.item(i + 1);
 
         if (complexDescriptionNode != null) {
-            description.setIngredient(complexDescriptionNode.getNodeValue());
+            description = new ComplexDescription();
+            description.setIngredient(complexDescriptionNode.getTextContent());
 
-            String priceNodeValue = complexDescriptions.item(i + 3).getNodeValue();
+            String priceNodeValue = complexDescriptions.item(i + 3).getTextContent();
 
-            description.setPrice(priceNodeValue != null ? Integer.parseInt(priceNodeValue) : 0);
+            description.setPrice(!priceNodeValue.isEmpty() ? Integer.parseInt(priceNodeValue) : 0);
         }
         return description;
 
