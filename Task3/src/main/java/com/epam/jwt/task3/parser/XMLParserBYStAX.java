@@ -62,17 +62,6 @@ public class XMLParserBYStAX implements AutoCloseable {
         return menu;
     }
 
-    private void endElement(XMLStreamReader reader) {
-        switch (reader.getLocalName()) {
-            case COMPLEX_DISH:
-                complexDescriptionPosition = BEGIN_INDEX;
-                break;
-            case SECTION:
-                complexDishesPosition = BEGIN_INDEX;
-                dishesPosition = BEGIN_INDEX;
-        }
-    }
-
     private void init() {
         menu = new Menu();
         menu.setSections(new ArrayList<>());
@@ -81,6 +70,7 @@ public class XMLParserBYStAX implements AutoCloseable {
     private void startElement(XMLStreamReader reader) throws XMLStreamException {
         tagName = reader.getLocalName();
         String tagValue;
+
         switch (tagName) {
             case MENU:
                 String restaurantName = reader.getAttributeValue(RESTAURANT_NAME_INDEX);
@@ -124,26 +114,25 @@ public class XMLParserBYStAX implements AutoCloseable {
                 break;
             case INGREDIENT:
                 ComplexDescription complexDescription = new ComplexDescription();
-                menu.getSections().get(sectionPosition)
-                        .getComplexDishes().get(complexDishesPosition)
+
+                menu.getSections().get(sectionPosition).getComplexDishes().get(complexDishesPosition)
                         .getComplexDescriptions().add(complexDescription);
                 complexDescriptionPosition++;
+
                 tagValue = reader.getElementText();
-                menu.getSections().get(sectionPosition)
-                        .getComplexDishes().get(complexDishesPosition)
+                menu.getSections().get(sectionPosition).getComplexDishes().get(complexDishesPosition)
                         .getComplexDescriptions().get(complexDescriptionPosition).setIngredient(tagValue);
             case DISH_NAME:
                 try {
                     tagValue = reader.getElementText();
-                } catch (Exception e) {
+                } catch (RuntimeException e) {
                     tagValue = "";
                 }
                 if (isComplexDish) {
                     menu.getSections().get(sectionPosition)
                             .getComplexDishes().get(complexDishesPosition).setNameDish(tagValue);
                 } else {
-                    menu.getSections().get(sectionPosition)
-                            .getDishes().get(dishesPosition).setNameDish(tagValue);
+                    menu.getSections().get(sectionPosition).getDishes().get(dishesPosition).setNameDish(tagValue);
                 }
                 break;
             case PHOTO:
@@ -152,14 +141,12 @@ public class XMLParserBYStAX implements AutoCloseable {
                     menu.getSections().get(sectionPosition)
                             .getComplexDishes().get(complexDishesPosition).setPhoto(tagValue);
                 } else {
-                    menu.getSections().get(sectionPosition)
-                            .getDishes().get(dishesPosition).setPhoto(tagValue);
+                    menu.getSections().get(sectionPosition).getDishes().get(dishesPosition).setPhoto(tagValue);
                 }
                 break;
             case DESCRIPTION:
                 tagValue = reader.getElementText();
-                menu.getSections().get(sectionPosition)
-                        .getDishes().get(dishesPosition).setDescription(tagValue);
+                menu.getSections().get(sectionPosition).getDishes().get(dishesPosition).setDescription(tagValue);
                 break;
             case PORTION:
                 tagValue = reader.getElementText();
@@ -167,8 +154,7 @@ public class XMLParserBYStAX implements AutoCloseable {
                     menu.getSections().get(sectionPosition)
                             .getComplexDishes().get(complexDishesPosition).setPortion(tagValue);
                 } else {
-                    menu.getSections().get(sectionPosition)
-                            .getDishes().get(dishesPosition).setPortion(tagValue);
+                    menu.getSections().get(sectionPosition).getDishes().get(dishesPosition).setPortion(tagValue);
                 }
                 break;
             case PRICE:
@@ -176,14 +162,28 @@ public class XMLParserBYStAX implements AutoCloseable {
                 if (isComplexDish) {
                     menu.getSections().get(sectionPosition)
                             .getComplexDishes().get(complexDishesPosition)
-                            .getComplexDescriptions().get(complexDescriptionPosition).setPrice(tagValue.isEmpty() ? 0 : Integer.parseInt(tagValue));
+                            .getComplexDescriptions().get(complexDescriptionPosition)
+                            .setPrice(tagValue.isEmpty() ? 0 : Integer.parseInt(tagValue));
                 } else {
                     menu.getSections().get(sectionPosition)
-                            .getDishes().get(dishesPosition).setPrice(tagValue.isEmpty() ? 0 : Integer.parseInt(tagValue));
+                            .getDishes().get(dishesPosition)
+                            .setPrice(tagValue.isEmpty() ? 0 : Integer.parseInt(tagValue));
                 }
                 break;
         }
     }
+
+    private void endElement(XMLStreamReader reader) {
+        switch (reader.getLocalName()) {
+            case COMPLEX_DISH:
+                complexDescriptionPosition = BEGIN_INDEX;
+                break;
+            case SECTION:
+                complexDishesPosition = BEGIN_INDEX;
+                dishesPosition = BEGIN_INDEX;
+        }
+    }
+
 
     @Override
     public void close() {
