@@ -1,8 +1,6 @@
 package com.epam.jwt.task3.parser;
 
 import com.epam.jwt.task3.entity.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -21,17 +19,13 @@ public class XMLParserByDOM {
     private static final String SECTION_NAME = "name";
     private static final int PHOTO_INDEX = 1;
     private static final int NAME_DISH_INDEX = 3;
-    private static final int DECRIPTION_INDEX = 5;
+    private static final int DESCRIPTION_INDEX = 5;
     private static final int PORTION_INDEX = 7;
     private static final int PRICE_INDEX = 9;
-    private static Logger logger = LogManager.getLogger(XMLParserByDOM.class);
+    private static final String DISHES = "dishes";
+    private static final String COMPLEX_DISH = "complexDish";
 
     private Menu menu;
-
-    public static void main(String[] args) throws IOException, SAXException {
-        Menu menu = new XMLParserByDOM().parseByDOM();
-        menu.getSections();
-    }
 
     public Menu parseByDOM() throws IOException, SAXException {
         DOMParser parser = new DOMParser();
@@ -72,7 +66,7 @@ public class XMLParserByDOM {
             List<ComplexDish> complexDishes = parseComplexDishes(sectionNode);
 
             section.setDishes(dishes);
-            section.setComplexDish(complexDishes);
+            section.setComplexDishes(complexDishes);
 
             sections.add(section);
         }
@@ -95,7 +89,7 @@ public class XMLParserByDOM {
             Element dishesNode = (Element) dishNode;
             NodeList childDishesNode = dishesNode.getChildNodes();
 
-            if (dishesNode.getTagName().trim().equals("dishes")) {
+            if (dishesNode.getTagName().trim().equals(DISHES)) {
                 Dish dish = parseDish(childDishesNode);
 
                 dishes.add(dish);
@@ -110,7 +104,7 @@ public class XMLParserByDOM {
 
         dish.setPhoto(childDishesNode.item(PHOTO_INDEX).getTextContent());
         dish.setNameDish(childDishesNode.item(NAME_DISH_INDEX).getTextContent());
-        dish.setDescription(childDishesNode.item(DECRIPTION_INDEX).getTextContent());
+        dish.setDescription(childDishesNode.item(DESCRIPTION_INDEX).getTextContent());
         dish.setPortion(childDishesNode.item(PORTION_INDEX).getTextContent());
 
         Node priceNode = childDishesNode.item(PRICE_INDEX);
@@ -137,7 +131,7 @@ public class XMLParserByDOM {
             Element complexDishesNode = (Element) dishesNodes.item(i);
             NodeList childComplexDishesNode = complexDishesNode.getChildNodes();
 
-            if (complexDishesNode.getTagName().trim().equals("complexDish")) {
+            if (complexDishesNode.getTagName().trim().equals(COMPLEX_DISH)) {
                 ComplexDish complexDish = parseComplexDish(childComplexDishesNode);
 
                 complexDishes.add(complexDish);
@@ -154,7 +148,7 @@ public class XMLParserByDOM {
 
         List<ComplexDescription> descriptions = parseComplexDescriptions(childComplexDishesNode);
 
-        complexDish.setComplexDescription(descriptions);
+        complexDish.setComplexDescriptions(descriptions);
         complexDish.setPortion(childComplexDishesNode.item(PORTION_INDEX).getTextContent());
 
         return complexDish;
@@ -162,7 +156,7 @@ public class XMLParserByDOM {
 
     private List<ComplexDescription> parseComplexDescriptions(NodeList childComplexDishesNode) {
         List<ComplexDescription> descriptions = new ArrayList<>();
-        NodeList complexDescriptions = childComplexDishesNode.item(DECRIPTION_INDEX).getChildNodes();
+        NodeList complexDescriptions = childComplexDishesNode.item(DESCRIPTION_INDEX).getChildNodes();
 
         int length = complexDescriptions.getLength();
 

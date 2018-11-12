@@ -5,16 +5,16 @@ import java.util.List;
 public class ComplexDish {
     private String photo;
     private String nameDish;
-    private List<ComplexDescription> complexDescription;
+    private List<ComplexDescription> complexDescriptions;
     private String portion;
 
     public ComplexDish() {
     }
 
-    public ComplexDish(String photo, String nameDish, List<ComplexDescription> complexDescription, String portion) {
+    public ComplexDish(String photo, String nameDish, List<ComplexDescription> complexDescriptions, String portion) {
         this.photo = photo;
         this.nameDish = nameDish;
-        this.complexDescription = complexDescription;
+        this.complexDescriptions = complexDescriptions;
         this.portion = portion;
     }
 
@@ -34,12 +34,12 @@ public class ComplexDish {
         this.nameDish = nameDish;
     }
 
-    public List<ComplexDescription> getComplexDescription() {
-        return complexDescription;
+    public List<ComplexDescription> getComplexDescriptions() {
+        return complexDescriptions;
     }
 
-    public void setComplexDescription(List<ComplexDescription> complexDescription) {
-        this.complexDescription = complexDescription;
+    public void setComplexDescriptions(List<ComplexDescription> complexDescriptions) {
+        this.complexDescriptions = complexDescriptions;
     }
 
     public String getPortion() {
@@ -77,10 +77,10 @@ public class ComplexDish {
                 return false;
             }
         }
-        if (null == complexDescription) {
-            return (complexDescription == complexDish.complexDescription);
+        if (null == complexDescriptions) {
+            return (complexDescriptions == complexDish.complexDescriptions);
         } else {
-            if (!complexDescription.equals(complexDish.complexDescription)) {
+            if (!complexDescriptions.equals(complexDish.complexDescriptions)) {
                 return false;
             }
         }
@@ -97,13 +97,13 @@ public class ComplexDish {
     @Override
     public int hashCode() {
         return (((null == photo) ? 0 : photo.hashCode() * 31) + ((null == nameDish) ? 0 : nameDish.hashCode() * 13) +
-                ((null == complexDescription) ? 0 : complexDescription.hashCode() * 31) +
+                ((null == complexDescriptions) ? 0 : complexDescriptions.hashCode() * 31) +
                 ((null == portion) ? 0 : portion.hashCode() * 13));
     }
 
     @Override
     public String toString() {
         return getClass().getName() + "@" + "photo: " + photo + ", nameDish: " + nameDish +
-                ", complexDescription: " + complexDescription + ", portion: " + portion;
+                ", complexDescriptions: " + complexDescriptions + ", portion: " + portion;
     }
 }

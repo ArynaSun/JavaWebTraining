@@ -14,7 +14,7 @@
     <complexType name="section">
         <choice maxOccurs="unbounded">
             <element name="dishes" type="tns:dishes" />
-            <element name="complexDish" type="tns:complexDish" />
+            <element name="complexDishes" type="tns:complexDishes" />
         </choice>
         <attribute name="name" type="string"/>
     </complexType>
@@ -27,15 +27,15 @@
             <element name="price" type="positiveInteger" default="1"/>
         </sequence>
     </complexType>
-    <complexType name="complexDish">
+    <complexType name="complexDishes">
         <sequence>
             <element name="photo" type="string" default="photo"/>
             <element name="dishName" type="string"/>
-            <element name="complexDescription" type="tns:complexDescription"/>
+            <element name="complexDescriptions" type="tns:complexDescriptions"/>
             <element name="portion" type="string"/>
         </sequence>
     </complexType>
-    <complexType name="complexDescription">
+    <complexType name="complexDescriptions">
         <sequence maxOccurs="unbounded">
            <element name="ingredient" type="string"/>
            <element name="price" type="positiveInteger" default="1"/>

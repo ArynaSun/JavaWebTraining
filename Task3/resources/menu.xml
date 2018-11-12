@@ -51,19 +51,19 @@
             <portion>80/20/1</portion>
             <price></price>
         </dishes>
-        <complexDish>
+        <complexDishes>
             <photo></photo>
             <dishName>Ассорти баклажаны</dishName>
-            <complexDescription>
+            <complexDescriptions>
                 <ingredient>Жареные баклажаны с помидорами с помидорами</ingredient>
                 <price></price>
                 <ingredient>с чесноком</ingredient>
                 <price></price>
                 <ingredient>с орехами</ingredient>
                 <price></price>
-            </complexDescription>
+            </complexDescriptions>
             <portion>100/5</portion>
-        </complexDish>
+        </complexDishes>
         <dishes>
             <photo></photo>
             <dishName>Соленья по-домашнему</dishName>
@@ -166,17 +166,17 @@
             <portion>150/5</portion>
             <price>105</price>
         </dishes>
-        <complexDish>
+        <complexDishes>
             <photo></photo>
             <dishName>Жульен</dishName>
-            <complexDescription>
+            <complexDescriptions>
                 <ingredient>с курицей</ingredient>
                 <price>145</price>
                 <ingredient>с грибами</ingredient>
                 <price>155</price>
-            </complexDescription>
+            </complexDescriptions>
             <portion>120/1</portion>
-        </complexDish>
+        </complexDishes>
         <dishes>
             <photo></photo>
             <dishName>Ахматар мясной</dishName>
@@ -198,17 +198,17 @@
             <portion>1 шт</portion>
             <price>260</price>
         </dishes>
-        <complexDish>
+        <complexDishes>
             <photo></photo>
             <dishName>Креветки</dishName>
-            <complexDescription>
+            <complexDescriptions>
                 <ingredient>отварные</ingredient>
                 <price>135</price>
                 <ingredient>жареные</ingredient>
                 <price>155</price>
-            </complexDescription>
+            </complexDescriptions>
             <portion>120/30</portion>
-        </complexDish>
+        </complexDishes>
         <dishes>
             <photo></photo>
             <dishName>Мидии по-турецки</dishName>

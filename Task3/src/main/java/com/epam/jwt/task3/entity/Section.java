@@ -5,16 +5,16 @@ import java.util.List;
 public class Section {
 
     private List<Dish> dishes;
-    private List<ComplexDish> complexDish;
+    private List<ComplexDish> complexDishes;
     private String name;
 
     public Section() {
     }
 
 
-    public Section(List<Dish> dish, List<ComplexDish> complexDish, String name) {
+    public Section(List<Dish> dish, List<ComplexDish> complexDishes, String name) {
         this.dishes = dish;
-        this.complexDish = complexDish;
+        this.complexDishes = complexDishes;
         this.name = name;
     }
 
@@ -34,12 +34,12 @@ public class Section {
         this.dishes = dishes;
     }
 
-    public List<ComplexDish> getComplexDish() {
-        return complexDish;
+    public List<ComplexDish> getComplexDishes() {
+        return complexDishes;
     }
 
-    public void setComplexDish(List<ComplexDish> complexDish) {
-        this.complexDish = complexDish;
+    public void setComplexDishes(List<ComplexDish> complexDishes) {
+        this.complexDishes = complexDishes;
     }
 
     @Override
@@ -63,10 +63,10 @@ public class Section {
             }
         }
 
-        if (null == complexDish) {
-            return (complexDish == section.complexDish);
+        if (null == complexDishes) {
+            return (complexDishes == section.complexDishes);
         } else {
-            if (!complexDish.equals(section.complexDish)) {
+            if (!complexDishes.equals(section.complexDishes)) {
                 return false;
             }
         }
@@ -83,12 +83,12 @@ public class Section {
 
     @Override
     public int hashCode() {
-        return (int) (((null == dishes) ? 0 : dishes.hashCode() * 11) +
-                ((null == complexDish) ? 0 : complexDish.hashCode() * 31) + ((null == name) ? 0 : name.hashCode() * 13));
+        return (((null == dishes) ? 0 : dishes.hashCode() * 11) +
+                ((null == complexDishes) ? 0 : complexDishes.hashCode() * 31) + ((null == name) ? 0 : name.hashCode() * 13));
     }
 
     @Override
-    public String toString(){
-        return getClass().getName() + "@" + "dishes: " + dishes + ", complexDish: " + ", name: " + name;
+    public String toString() {
+        return getClass().getName() + "@" + "dishes: " + dishes + ", complexDishes: " + ", name: " + name;
     }
 }

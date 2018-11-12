@@ -13,6 +13,18 @@ public class XMLParserBySax extends DefaultHandler {
     private static final int RESTAURANT_NAME_INDEX = 0;
     private static final int SECTION_INDEX = 0;
     private static final int BEGIN_INDEX = -1;
+    private static final String PHOTO = "photo";
+    private static final String DISH_NAME = "dishName";
+    private static final String INGREDIENT = "ingredient";
+    private static final String PRICE = "price";
+    private static final String PORTION = "portion";
+    private static final String DESCRIPTION = "description";
+    private static final String SECTION = "section";
+    private static final String COMPLEX_DISH = "complexDish";
+    private static final String COMPLEX_DESCRIPTION = "complexDescription";
+    private static final String DISHES = "dishes";
+    private static final String MENU = "menu";
+
     private static Logger logger = LogManager.getLogger(XMLParserBySax.class);
 
     private Menu menu;
@@ -42,13 +54,13 @@ public class XMLParserBySax extends DefaultHandler {
                              String qName, Attributes attributes) {
         element = localName.trim();
         switch (element) {
-            case "menu":
+            case MENU:
                 String restaurantName = attributes.getValue(RESTAURANT_NAME_INDEX);
                 logger.info("Restaurant: " + restaurantName);
                 menu.setNameRestaurant(restaurantName);
 
                 break;
-            case "section":
+            case SECTION:
                 String sectionName = attributes.getValue(SECTION_INDEX);
                 logger.info("Section: " + sectionName);
 
@@ -56,7 +68,7 @@ public class XMLParserBySax extends DefaultHandler {
 
                 section.setName(sectionName);
 
-                section.setComplexDish(new ArrayList<>());
+                section.setComplexDishes(new ArrayList<>());
                 section.setDishes(new ArrayList<>());
 
                 menu.getSections().add(section);
@@ -64,7 +76,7 @@ public class XMLParserBySax extends DefaultHandler {
                 sectionPosition++;
 
                 break;
-            case "dishes":
+            case DISHES:
                 Dish dish = new Dish();
 
                 menu.getSections().get(sectionPosition).getDishes().add(dish);
@@ -73,25 +85,25 @@ public class XMLParserBySax extends DefaultHandler {
                 isComplexDish = false;
 
                 break;
-            case "complexDish":
+            case COMPLEX_DISH:
                 ComplexDish complexDish = new ComplexDish();
 
-                menu.getSections().get(sectionPosition).getComplexDish().add(complexDish);
+                menu.getSections().get(sectionPosition).getComplexDishes().add(complexDish);
                 complexDishesPosition++;
 
                 isComplexDish = true;
 
                 break;
-            case "complexDescription":
+            case COMPLEX_DESCRIPTION:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition)
-                        .setComplexDescription(new ArrayList<>());
+                        .getComplexDishes().get(complexDishesPosition)
+                        .setComplexDescriptions(new ArrayList<>());
                 break;
-            case "ingredient":
+            case INGREDIENT:
                 ComplexDescription complexDescription = new ComplexDescription();
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition)
-                        .getComplexDescription().add(complexDescription);
+                        .getComplexDishes().get(complexDishesPosition)
+                        .getComplexDescriptions().add(complexDescription);
                 complexDescriptionPosition++;
         }
 
@@ -101,10 +113,10 @@ public class XMLParserBySax extends DefaultHandler {
     public void endElement(String namespaceURI, String localName, String qName) {
         logger.info(localName);
         switch (localName) {
-            case "complexDish":
+            case COMPLEX_DISH:
                 complexDescriptionPosition = BEGIN_INDEX;
                 break;
-            case "section":
+            case SECTION:
                 complexDishesPosition = BEGIN_INDEX;
                 dishesPosition = BEGIN_INDEX;
         }
@@ -127,50 +139,50 @@ public class XMLParserBySax extends DefaultHandler {
 
     private void handleComplexDish(String tagValue) {
         switch (element) {
-            case "photo":
+            case PHOTO:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition).setPhoto(tagValue);
+                        .getComplexDishes().get(complexDishesPosition).setPhoto(tagValue);
                 break;
-            case "dishName":
+            case DISH_NAME:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition).setNameDish(tagValue);
+                        .getComplexDishes().get(complexDishesPosition).setNameDish(tagValue);
                 break;
-            case "ingredient":
+            case INGREDIENT:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition)
-                        .getComplexDescription().get(complexDescriptionPosition).setIngredient(tagValue);
+                        .getComplexDishes().get(complexDishesPosition)
+                        .getComplexDescriptions().get(complexDescriptionPosition).setIngredient(tagValue);
                 break;
-            case "price":
+            case PRICE:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition)
-                        .getComplexDescription().get(complexDescriptionPosition).setPrice(Integer.parseInt(tagValue));
+                        .getComplexDishes().get(complexDishesPosition)
+                        .getComplexDescriptions().get(complexDescriptionPosition).setPrice(Integer.parseInt(tagValue));
                 break;
-            case "portion":
+            case PORTION:
                 menu.getSections().get(sectionPosition)
-                        .getComplexDish().get(complexDishesPosition).setPortion(tagValue);
+                        .getComplexDishes().get(complexDishesPosition).setPortion(tagValue);
                 break;
         }
     }
 
     private void handleDish(String tagValue) {
         switch (element) {
-            case "photo":
+            case PHOTO:
                 menu.getSections().get(sectionPosition)
                         .getDishes().get(dishesPosition).setPhoto(tagValue);
                 break;
-            case "dishName":
+            case DISH_NAME:
                 menu.getSections().get(sectionPosition)
                         .getDishes().get(dishesPosition).setNameDish(tagValue);
                 break;
-            case "description":
+            case DESCRIPTION:
                 menu.getSections().get(sectionPosition)
                         .getDishes().get(dishesPosition).setDescription(tagValue);
                 break;
-            case "portion":
+            case PORTION:
                 menu.getSections().get(sectionPosition)
                         .getDishes().get(dishesPosition).setPortion(tagValue);
                 break;
-            case "price":
+            case PRICE:
                 menu.getSections().get(sectionPosition)
                         .getDishes().get(dishesPosition).setPrice(Integer.parseInt(tagValue));
                 break;
@@ -180,7 +192,7 @@ public class XMLParserBySax extends DefaultHandler {
 
     @Override
     public void endDocument() {
-        System.out.println(("\nParsing ended"));
+        logger.info("\nParsing ended");
     }
 
 }
