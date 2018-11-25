@@ -5,7 +5,6 @@ import com.epam.jwt.task4.reader.Impl.DataReaderImpl;
 
 public class Truck extends Vehicle {
 
-
     private static final int TRUCK_WEIGHT;
     private static final int TRUCK_SQUARE;
 

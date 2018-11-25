@@ -4,9 +4,10 @@ import java.util.List;
 
 public interface DataReader {
 
-    int readCarWeight();
     int readCarSquare();
-    int readTruckWeight();
+    int readCarWeight();
     int readTruckSquare();
+    int readTruckWeight();
+
 
 }

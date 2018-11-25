@@ -1,5 +1,8 @@
 package com.epam.jwt.task4.entitty;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.Serializable;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -7,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class RiverFerry implements Serializable {
 
+    private static Logger logger = LogManager.getLogger(RiverFerry.class);
     private static final int PERMITS = 1;
     private static final int platformSquare = 80;
     private static final int carryingCapacity = 160000;
@@ -74,7 +78,7 @@ public class RiverFerry implements Serializable {
             occupiedSquare.set(EMPTY_FERRY_SQUARE);
             TimeUnit.SECONDS.sleep(TRANSPORTATION_TIME);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.info("Попытка вызова метода на спящем потоке");
         }
     }
 
@@ -83,16 +87,53 @@ public class RiverFerry implements Serializable {
                 && (vehicle.getSquare() + occupiedSquare.intValue()) <= platformSquare;
     }
 
-//    @Override
-//    public boolean equals(Object obj){return true;}
-//
-//    @Override
-//    public int hashCode(){
-//        return
-//    }
-//
-//    @Override
-//    public String toString(){
-//        return getClass().getName() ;
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (this == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        RiverFerry riverFerry = (RiverFerry) obj;
+        if (null == occupiedSquare) {
+            return occupiedSquare == riverFerry.occupiedSquare;
+        } else {
+            if (!occupiedSquare.equals(riverFerry.occupiedSquare)) {
+                return false;
+            }
+        }
+        if (null == currentWeightOfVehicles) {
+            return currentWeightOfVehicles == riverFerry.currentWeightOfVehicles;
+        } else {
+            if (!currentWeightOfVehicles.equals(riverFerry.currentWeightOfVehicles)) {
+                return false;
+            }
+        }
+        if (null == semaphore) {
+            return semaphore == riverFerry.semaphore;
+        } else {
+            if (!semaphore.equals(riverFerry.semaphore)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (((occupiedSquare == null) ? 0 : occupiedSquare.hashCode() * 31) +
+                ((currentWeightOfVehicles == null) ? 0 : currentWeightOfVehicles.hashCode() * 11) +
+                ((semaphore == null) ? 0 : semaphore.hashCode() * 13));
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "@" + "occupiedSquare: " + occupiedSquare + ", currentWeightOfVehicles: " +
+                currentWeightOfVehicles + ", semaphore: " + semaphore;
+    }
 }

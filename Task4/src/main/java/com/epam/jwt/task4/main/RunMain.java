@@ -12,7 +12,7 @@ public class RunMain {
 
     public static void main(String[] args) {
 
-        new Thread(new Runnable() {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 Random random = new Random();
@@ -31,6 +31,8 @@ public class RunMain {
 
                 }
             }
-        }).start();
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 }

@@ -3,9 +3,6 @@ package com.epam.jwt.task4.entitty;
 import com.epam.jwt.task4.reader.DataReader;
 import com.epam.jwt.task4.reader.Impl.DataReaderImpl;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
-
 public class Car extends Vehicle {
 
     private static final int CAR_WEIGHT;
@@ -20,6 +17,4 @@ public class Car extends Vehicle {
     public Car() {
         super(CAR_WEIGHT, CAR_SQUARE);
     }
-
-
 }

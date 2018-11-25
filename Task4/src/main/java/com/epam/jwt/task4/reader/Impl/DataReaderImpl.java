@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,11 +17,11 @@ public class DataReaderImpl implements DataReader {
 
     protected static final String FILE_NAME = "resources/Data.txt";
 
+    private static Logger logger = LogManager.getLogger(DataReaderImpl.class);
     private static final int CAR_SQUARE_INDEX = 0;
     private static final int CAR_WEIGHT_INDEX = 1;
     private static final int TRUCK_SQUARE_INDEX = 2;
     private static final int TRUCK_WEIGHT_INDEX = 3;
-    private static Logger logger = LogManager.getLogger(DataReaderImpl.class);
 
     private int carSquare;
     private int carWeight;
@@ -31,6 +30,7 @@ public class DataReaderImpl implements DataReader {
 
     private DataReaderImpl(String fileName){
         List<String> data = readData(fileName);
+
         carSquare = Integer.parseInt(data.get(CAR_SQUARE_INDEX));
         carWeight = Integer.parseInt(data.get(CAR_WEIGHT_INDEX));
         truckSquare = Integer.parseInt(data.get(TRUCK_SQUARE_INDEX));
@@ -59,13 +59,18 @@ public class DataReaderImpl implements DataReader {
     }
 
     @Override
+    public int readCarSquare() {
+        return carSquare;
+    }
+
+    @Override
     public int readCarWeight() {
         return carWeight;
     }
 
     @Override
-    public int readCarSquare() {
-        return carSquare;
+    public int readTruckSquare() {
+        return truckSquare;
     }
 
     @Override
@@ -73,8 +78,4 @@ public class DataReaderImpl implements DataReader {
         return truckWeight;
     }
 
-    @Override
-    public int readTruckSquare() {
-        return truckSquare;
-    }
 }
