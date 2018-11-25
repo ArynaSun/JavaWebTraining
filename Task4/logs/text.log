@@ -1,0 +1,6 @@
+2018-11-25 16:11:07 [Thread-31] INFO  epam.jwt.task4.entitty.RiverFerry - 70 70700
+2018-11-25 16:11:08 [Thread-32] INFO  epam.jwt.task4.entitty.RiverFerry - Truck called on the way
+2018-11-25 16:11:08 [Thread-32] INFO  epam.jwt.task4.entitty.RiverFerry - 77 78700
+2018-11-25 16:11:09 [Thread-33] INFO  epam.jwt.task4.entitty.RiverFerry - Car called on the way
+2018-11-25 16:11:09 [Thread-33] INFO  epam.jwt.task4.entitty.RiverFerry - 80 80800
+2018-11-25 16:11:10 [Thread-34] INFO  epam.jwt.task4.entitty.RiverFerry - Ferry is transporting 80, 80800

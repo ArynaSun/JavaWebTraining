@@ -1,0 +1,12 @@
+2018-11-25 16:10:44 [Thread-8] INFO  epam.jwt.task4.entitty.RiverFerry - Car called on the way
+2018-11-25 16:10:44 [Thread-8] INFO  epam.jwt.task4.entitty.RiverFerry - 33 32400
+2018-11-25 16:10:45 [Thread-9] INFO  epam.jwt.task4.entitty.RiverFerry - Truck called on the way
+2018-11-25 16:10:45 [Thread-9] INFO  epam.jwt.task4.entitty.RiverFerry - 40 40400
+2018-11-25 16:10:46 [Thread-10] INFO  epam.jwt.task4.entitty.RiverFerry - Car called on the way
+2018-11-25 16:10:46 [Thread-10] INFO  epam.jwt.task4.entitty.RiverFerry - 43 42500
+2018-11-25 16:10:47 [Thread-11] INFO  epam.jwt.task4.entitty.RiverFerry - Truck called on the way
+2018-11-25 16:10:47 [Thread-11] INFO  epam.jwt.task4.entitty.RiverFerry - 50 50500
+2018-11-25 16:10:48 [Thread-12] INFO  epam.jwt.task4.entitty.RiverFerry - Car called on the way
+2018-11-25 16:10:48 [Thread-12] INFO  epam.jwt.task4.entitty.RiverFerry - 53 52600
+2018-11-25 16:10:49 [Thread-13] INFO  epam.jwt.task4.entitty.RiverFerry - Truck called on the way
+2018-11-25 16:10:49 [Thread-13] INFO  epam.jwt.task4.entitty.RiverFerry - 60 60600

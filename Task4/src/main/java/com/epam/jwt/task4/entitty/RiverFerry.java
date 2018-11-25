@@ -58,10 +58,10 @@ public class RiverFerry implements Serializable {
 
     public void operate(Vehicle vehicle) {
         if (isFit(vehicle)) {
-            System.out.println(vehicle.getClass().getSimpleName() + " called on the way");
+           logger.info(vehicle.getClass().getSimpleName() + " called on the way");
             currentWeightOfVehicles.getAndAdd(vehicle.getWeight());
             occupiedSquare.getAndAdd(vehicle.getSquare());
-            System.out.println(occupiedSquare.intValue() + " " + currentWeightOfVehicles.intValue());
+            logger.info(occupiedSquare.intValue() + " " + currentWeightOfVehicles.intValue());
             return;
         } else {
             transport();
@@ -71,7 +71,7 @@ public class RiverFerry implements Serializable {
     }
 
     private void transport() {
-        System.out.println("Ferry is transporting " + occupiedSquare.intValue() + ", " + currentWeightOfVehicles.intValue());
+        logger.info("Ferry is transporting " + occupiedSquare.intValue() + ", " + currentWeightOfVehicles.intValue());
         try {
             TimeUnit.SECONDS.sleep(TRANSPORTATION_TIME);
             currentWeightOfVehicles.set(EMPTY_FERRY_WEIGHT);
